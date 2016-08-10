@@ -1,0 +1,2 @@
+# myself
+Automate everything
