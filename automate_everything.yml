@@ -1,1 +1,6 @@
+#!/usr/bin/env ansible-playbook
 ---
+- hosts: localhost
+  tasks:
+    - name: install Python and dependencies to run Ansible modules
+      command: dnf install -y python2 python2-dnf
