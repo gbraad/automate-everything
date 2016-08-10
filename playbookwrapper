@@ -1,0 +1,20 @@
+#!/bin/sh
+
+APTPKGS="ansible"
+RPMPKGS="ansible"
+
+if [ ! -x "/usr/bin/ansible-playbook" ]; then
+  # Crude multi-os installation option
+  if [ -x "/usr/bin/apt-get" ]
+  then
+    sudo apt-get install -y $APTPKGS
+  elif [ -x "/usr/bin/dnf" ]
+  then
+    sudo dnf install -y $RPMPKGS
+  elif [ -x "/usr/bin/yum" ]
+  then
+    sudo yum install -y $RPMPKGS
+  fi
+fi
+
+ansible-playbook $@
